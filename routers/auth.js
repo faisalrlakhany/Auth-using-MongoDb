@@ -28,10 +28,6 @@ const loginSchema = Joi.object({
 })
 
 
-
-
-
-
 router.post('/register', async (req, res) => {
 
     const { error, value } = registerSchema.validate(req.body);
