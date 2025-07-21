@@ -3,7 +3,7 @@ import express from 'express'
 import morgan from 'morgan';
 import 'dotenv/config'
 import mongoose from 'mongoose';
-
+import authRouter from './routers/auth.js';
 
 const app = express()
 const PORT = 4000;
@@ -23,6 +23,8 @@ mongoose.connect(process.env.MONGODBURI)
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
+
+app.use("/auth", authRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is running on Port${PORT}`);
